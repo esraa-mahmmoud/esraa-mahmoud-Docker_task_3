@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h2 class="logo">My App</h2>
+    </nav>
+
+    <section class="container">
+        <div class="card">
+            <h3>Add New Item</h3>
+            <form id="addForm">
+                <input type="text" id="itemName" placeholder="Enter item name" required>
+                <button type="submit">Add Item</button>
+            </form>
+        </div>
+
+        <div class="card">
+            <h3>Items List</h3>
+            <ul id="itemsList"></ul>
+        </div>
+    </section>
+
+    <script>
+        const form = document.getElementById('addForm');
+        const list = document.getElementById('itemsList');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const value = document.getElementById('itemName').value;
+
+            const li = document.createElement('li');
+            li.textContent = value;
+
+            list.appendChild(li);
+            form.reset();
+        });
+    </script>
+
+</body>
+</html>
